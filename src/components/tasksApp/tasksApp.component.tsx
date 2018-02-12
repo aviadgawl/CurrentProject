@@ -2,8 +2,8 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // My Modules.
-import MyTasksBoard from './myTasksBoard.component';
-import Home from './home.component';
+import MyTasksBoard from '../myTaskBoard/myTasksBoard.component'
+import Home from '../home/home.component';
 
 interface TasksAppProps { };
 interface TasksAppStatus { };

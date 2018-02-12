@@ -1,3 +1,4 @@
+import './home.style.css';
 import * as React from 'react';
 
 interface HomeProps { };
@@ -9,7 +10,7 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
     }
 
     render() {
-        return <div>
+        return <div className="home">
            this is the home component.
         </div>
     }
