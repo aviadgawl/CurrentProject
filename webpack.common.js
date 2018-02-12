@@ -2,18 +2,23 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: './src/index.ts',
-        vendor: ["jquery"]
+        app: './src/index.tsx',
+        vendor: ["jquery", "react", "react-dom", "react-router-dom"]
     },
-    module:{
+    module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader' , 'css-loader']
-            },
+            // {
+            //     test: /\.css$/,
+            //     use: ExtractTextPlugin.extract({
+            //         fallback: "style-loader",
+            //         use: {loader:"css-loader" , options:{minimize:true}},
+            //         publicPath: '/dist'    
+            //     })
+            // },
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
@@ -22,22 +27,25 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ]
+        extensions: ['.tsx', '.ts', '.js']
     },
-    plugins:[
+    plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Production'
+            title: 'TasksGame'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest'
+        }),
+        new ExtractTextPlugin({
+            filename: 'bundle.css'
         })
     ],
-    output:{
+    output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname , 'dist')
+        path: path.resolve(__dirname, 'dist')
     }
 };
