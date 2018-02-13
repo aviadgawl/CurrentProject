@@ -10,8 +10,7 @@ module.exports = merge(common , {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: { loader: "css-loader"},
-                    publicPath: '/dist'    
+                    use: { loader: "css-loader"}
                 })
             }
         ]
@@ -24,6 +23,5 @@ module.exports = merge(common , {
     plugins:[
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
-        //new webpack.NamedModulesPlugin()
     ]
 });
