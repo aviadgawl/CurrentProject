@@ -2,31 +2,42 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+// Import My Styles.
+import './tasksApp.style.css';
+
 // My Modules.
-import MyTasksBoard from '../myTaskBoard/myTasksBoard.component'
-import Home from '../home/home.component';
-import Footer from '../footer/footer.component';
+import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
+import Home from './components/home/home.component';
+import Footer from './components/footer/footer.component';
 
 interface TasksAppProps { };
-interface TasksAppStatus { };
+interface TasksAppStatus { acitveLinkIndex: number };
 
 export default class tasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
 
     constructor(props: TasksAppProps) {
-        super(props);
+        super(props,);
+        this.state = { acitveLinkIndex: 0 };
     }
 
+     setActiveLinkIndex(index:number){
+        this.setState({acitveLinkIndex: index});
+     }
+
     render() {
+
         return <Router>
             <div id="page">
 
-                <div id="navBar">
+                <div className="tasksNavbarPadding" id="navBar" >
                     <ul className="menu menu-hover-lines">
-                        <li className="active"><Link to={'/'}>Home</Link></li>
-                        <li><Link to={'/MyTasksBoard'}>My Tasks Board</Link></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Products</a></li>
+                        <li className={this.state.acitveLinkIndex == 0 ? "active" : ''}>
+                            <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/'}>Home</Link>
+                        </li>
+                        <li  className={this.state.acitveLinkIndex == 1 ? "active" : ''}>
+                            <Link onClick={(e) => this.setActiveLinkIndex(1)} to={'/MyTasksBoard'}>My Tasks Board</Link>
+                        </li>
+                        <li><a href="#">My Protages</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -36,13 +47,12 @@ export default class tasksApp extends React.Component<TasksAppProps, TasksAppSta
                         <Route exact path='/' component={Home} />
                         <Route exact path='/MyTasksBoard' component={MyTasksBoard} />
                     </Switch>
-                </div> 
+                </div>
 
                 <div id="footer">
                     <Footer />
                 </div>
             </div>
-
 
         </Router >
     }

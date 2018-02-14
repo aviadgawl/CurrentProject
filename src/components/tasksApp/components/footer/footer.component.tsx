@@ -9,12 +9,12 @@ export default class Footer extends React.Component<footerProps, footerStatus>{
     constructor(props: footerProps) {
         super(props)
     }
-
+   
     render() {
         return <div>
             <footer className="social-footer">
                 <div className="social-footer-left">
-                    <a href="#"><img className="logo" src="https://placehold.it/150x30" /></a>
+                    <a href="#"><img className="logo footerSrcImage" /></a>
                 </div>
                 <div className="social-footer-icons">
                     <ul className="menu simple">

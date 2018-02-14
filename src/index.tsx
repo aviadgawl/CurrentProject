@@ -8,7 +8,7 @@ import '../node_modules/foundation-sites/dist/css/foundation.css';
 //my app components
 import TaskApp from './components/tasksApp/tasksApp.component';
 
-document.write("<div id='taskApp' />");
+document.write("<div id='taskApp' class='fullPage' />");
 
 ReactDOM.render(
     <TaskApp />,

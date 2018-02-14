@@ -1,4 +1,5 @@
-import * as React from 'react'
+import './myTaskBoard.style.css';
+import * as React from 'react';
 
 interface MyTasksBoardProps { };
 interface MyTasksBoardStatus { };
@@ -10,13 +11,8 @@ export default class MyTasksBoard extends React.Component<MyTasksBoardProps, MyT
     }
 
     render() {
-        return <div>
-            <div>
-                here there will be my dashboard.
-            </div>
-            <div>
-                here i will be able to add and remove my tasks.
-            </div>
+        return <div className="taskBoard">
+         this is the board
         </div>
     }
 }
