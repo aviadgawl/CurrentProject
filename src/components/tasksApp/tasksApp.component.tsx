@@ -1,10 +1,11 @@
 // General Modules.
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 // My Modules.
 import MyTasksBoard from '../myTaskBoard/myTasksBoard.component'
 import Home from '../home/home.component';
-import Navbar from '../navbar/navbar.component';
+import Footer from '../footer/footer.component';
 
 interface TasksAppProps { };
 interface TasksAppStatus { };
@@ -19,25 +20,26 @@ export default class tasksApp extends React.Component<TasksAppProps, TasksAppSta
         return <Router>
             <div id="page">
 
-                <Navbar />
-
-                {/* <div className="container">
-                    <button className="btn">this is a button</button>
+                <div id="navBar">
+                    <ul className="menu menu-hover-lines">
+                        <li className="active"><Link to={'/'}>Home</Link></li>
+                        <li><Link to={'/MyTasksBoard'}>My Tasks Board</Link></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <ul>
-                    <li><Link to={'/'}>Home</Link></li>
-                    <li><Link to={'/MyTasksBoard'}>My Tasks Board</Link></li>
-                </ul>
 
                 <div id="body">
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path='/MyTasksBoard' component={MyTasksBoard} />
                     </Switch>
-                </div> */}
-
+                </div> 
 
                 <div id="footer">
+                    <Footer />
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: {
         app: './src/index.tsx',
-        vendor: ["jquery", "react", "react-dom", "react-router-dom"]
+        vendor: ["jquery","foundation-sites", "react", "react-dom", "react-router-dom"]
     },
     module: {
         rules: [
@@ -15,7 +15,17 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                use: [{
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts/'   
+                  }
+                }]
+              }
         ]
     },
     resolve: {
