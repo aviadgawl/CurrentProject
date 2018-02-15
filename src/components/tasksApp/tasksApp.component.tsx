@@ -1,6 +1,7 @@
 // General Modules.
 import * as React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 // Import My Styles.
 import './tasksApp.style.css';
@@ -26,7 +27,7 @@ export default class tasksApp extends React.Component<TasksAppProps, TasksAppSta
 
     render() {
 
-        return <Router>
+        return <HashRouter>
             <div id="page">
 
                 <div className="tasksNavbarPadding" id="navBar" >
@@ -54,6 +55,6 @@ export default class tasksApp extends React.Component<TasksAppProps, TasksAppSta
                 </div>
             </div>
 
-        </Router >
+        </ HashRouter>
     }
 }

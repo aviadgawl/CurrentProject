@@ -13,10 +13,9 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
         return <div>
             <div className="marketing-site-hero">
                 <div className="marketing-site-hero-content">
-                    <h1>Yeti Snowcone Agency</h1>
+                    <h1>The Tasks Game</h1>
                     <p className="subheader subheaderHomeText">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis,
-                        maxime libero natus qui minus!
+                        Orgenize your tasks , earn points and gain new levels thats show how much productive you can be.
                     </p>
                     <a href="#" className="round button">learn more</a>
                 </div>
