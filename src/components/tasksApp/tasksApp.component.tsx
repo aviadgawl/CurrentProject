@@ -14,7 +14,7 @@ import Footer from './components/footer/footer.component';
 interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number };
 
-export default class tasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
+export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
 
     constructor(props: TasksAppProps) {
         super(props,);

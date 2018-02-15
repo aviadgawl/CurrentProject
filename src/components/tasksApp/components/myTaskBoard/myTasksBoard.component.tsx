@@ -1,7 +1,8 @@
 import './myTasksBoard.style.css';
 import * as React from 'react';
 import MyProfile from './components/myProfile/myProfile.component';
-import StatusRing from './components/statusRing/statusRing.component'
+import StatusRing from './components/statusRing/statusRing.component';
+import TasksDashboard from './components/tasksDashboard/tasksDashboard.component';
 
 interface MyTasksBoardProps { };
 interface MyTasksBoardStatus { };
@@ -18,10 +19,10 @@ export default class MyTasksBoard extends React.Component<MyTasksBoardProps, MyT
                 < MyProfile />
             </div>
             <div id="tasksDashboard" className="tasksDashboardContainer cell medium-6 large-6">
-
+                <TasksDashboard />
             </div>
             <div id="statusRing" className="statusRingContainer cell medium-4 large-4">
-                <StatusRing  progression={5} maxProgression={10}/>
+                <StatusRing  progression={7} maxProgression={10}/>
             </div>
         </div>
     }
