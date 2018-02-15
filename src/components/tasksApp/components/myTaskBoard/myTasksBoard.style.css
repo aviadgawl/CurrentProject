@@ -1,7 +1,12 @@
 .taskBoard{
     height: 86vh;
+    padding: 10px;
 }
 
 .myProfileContainer{
     width: 50%;
+}
+
+.statusRingContainer{
+
 }
