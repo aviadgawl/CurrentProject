@@ -1,6 +1,6 @@
 // General Modules.
 import * as React from "react";
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 
 // Import My Styles.
@@ -10,6 +10,7 @@ import './tasksApp.style.css';
 import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
 import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
+import Contact from './components/contact/contact.component';
 
 interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number };
@@ -17,13 +18,13 @@ interface TasksAppStatus { acitveLinkIndex: number };
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
 
     constructor(props: TasksAppProps) {
-        super(props,);
+        super(props, );
         this.state = { acitveLinkIndex: 0 };
     }
 
-     setActiveLinkIndex(index:number){
-        this.setState({acitveLinkIndex: index});
-     }
+    setActiveLinkIndex(index: number) {
+        this.setState({ acitveLinkIndex: index });
+    }
 
     render() {
 
@@ -35,11 +36,13 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                         <li className={this.state.acitveLinkIndex == 0 ? "active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/'}>Home</Link>
                         </li>
-                        <li  className={this.state.acitveLinkIndex == 1 ? "active" : ''}>
+                        <li className={this.state.acitveLinkIndex == 1 ? "active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(1)} to={'/MyTasksBoard'}>My Tasks Board</Link>
                         </li>
                         <li><a href="#">My Protages</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li>
+                            <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/Contact'}>Contact</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -47,6 +50,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path='/MyTasksBoard' component={MyTasksBoard} />
+                        <Route exact path='/Contact' component={Contact} />
                     </Switch>
                 </div>
 
