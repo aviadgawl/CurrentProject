@@ -49,7 +49,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                 <div id="body">
                     <Switch>
                         <Route exact path='/' component={Home} />
-                        <Route exact path='/MyTasksBoard' component={MyTasksBoard} />
+                        <Route path='/MyTasksBoard' component={MyTasksBoard} />
                         <Route exact path='/Contact' component={Contact} />
                     </Switch>
                 </div>

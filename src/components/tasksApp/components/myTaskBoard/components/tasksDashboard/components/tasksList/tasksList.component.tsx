@@ -1,7 +1,7 @@
 import './tasksList.style.css';
 import * as React from 'react';
 
-interface tasksListProps {};
+interface tasksListProps {header:string};
 interface tasksListStatus {};
 
 export default class TasksList extends React.Component<tasksListProps , tasksListStatus>{
@@ -11,7 +11,7 @@ export default class TasksList extends React.Component<tasksListProps , tasksLis
 
     render(){
         return <div>
-            asdasdasdw  daw xczedf  daw e 
+            <h1>{this.props.header}</h1>
         </div>
     }
 }
