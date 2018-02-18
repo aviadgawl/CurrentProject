@@ -3,6 +3,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 import TasksList from './components/tasksList/tasksList.component';
+import AddTask from './components/addTask/addTask.component';
 
 interface tasksDashboardProps { };
 interface tasksDashboardStatus { acitveLinkIndex: number };
@@ -40,7 +41,7 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
 
                     <Switch>
                         <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed" type="success" />} />
-                        <Route path='/MyTasksBoard/Add' render={() => <TasksList header="Add" type="alert"/>} />
+                        <Route path='/MyTasksBoard/Add' render={() => <AddTask />} />
                         <Route path='/MyTasksBoard/Recent' render={() => <TasksList header="Recent" type="secondary"/>} />
                         <Route path='/MyTasksBoard/' render={() => <TasksList header="Incompleted" type="primary" />} />
                     </Switch>
