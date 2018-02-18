@@ -7,7 +7,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: {
         app: './src/index.tsx',
-        vendor: ["jquery","foundation-sites", "react", "react-dom", "react-router-dom"]
+        vendor: ["jquery",
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "foundation-sites"]
     },
     module: {
         rules: [
@@ -19,23 +23,23 @@ module.exports = {
             {
                 test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
                 use: [{
-                  loader: 'file-loader',
-                  options: {
-                    name: '[name].[ext]',
-                    outputPath: 'fonts/'   
-                  }
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
                 }]
-              },
-              {
+            },
+            {
                 test: /\.png$/,
                 use: [{
-                  loader: 'file-loader',
-                  options: {
-                    name: '[name].[ext]',
-                    outputPath: 'images/'   
-                  }
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
                 }]
-              }
+            }
         ]
     },
     resolve: {

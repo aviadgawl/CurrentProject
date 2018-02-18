@@ -32,7 +32,7 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                             <Link onClick={(e) => this.setActiveLinkIndex(2)} to={'/MyTasksBoard/Add'}>Add</Link>
                         </li>
                         <li className={this.state.acitveLinkIndex == 3 ? "is-active" : ''}>
-                            <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/MyTasksBoard/Recent'}>Recent</Link>
+                            <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/MyTasksBoard/'}>Recent</Link>
                         </li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                         <Route path='/MyTasksBoard/Incompleted' render={() => <TasksList header="Incompleted" />} />
                         <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed"/>} />
                         <Route path='/MyTasksBoard/Add' render={() => <TasksList header="Add"/>} />
-                        <Route path='/MyTasksBoard/Recent' render={() => <TasksList header="Recent"/>} />
+                        <Route path='/MyTasksBoard/' render={() => <TasksList header="Recent"/>} />
                     </Switch>
                 </div>
             </div>

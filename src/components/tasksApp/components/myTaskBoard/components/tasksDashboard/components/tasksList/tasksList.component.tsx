@@ -1,17 +1,26 @@
 import './tasksList.style.css';
 import * as React from 'react';
+import TaskBlock from './components/taskBlock/taskBlock.component';
 
-interface tasksListProps {header:string};
-interface tasksListStatus {};
+interface tasksListProps { header: string };
+interface tasksListStatus { };
 
-export default class TasksList extends React.Component<tasksListProps , tasksListStatus>{
-    constructor(props:tasksListProps){
+export default class TasksList extends React.Component<tasksListProps, tasksListStatus>{
+    constructor(props: tasksListProps) {
         super(props);
     }
 
-    render(){
+    render() {
         return <div>
             <h1>{this.props.header}</h1>
+            <ul>
+                <li>
+                <TaskBlock head="Go to the supermarket" body="buy milk and suger" prioraty={2} />
+                </li>
+                <li>
+                <TaskBlock head="Go to the GYM" body="finish my daily workout" prioraty={2} />
+                </li>
+            </ul>
         </div>
     }
 }
