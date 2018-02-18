@@ -1,12 +1,8 @@
 .taskBoard{
-    height: 86vh;
+    height: inherit;
     padding: 10px;
 }
 
 .myProfileContainer{
     width: 50%;
-}
-
-.statusRingContainer{
-
 }

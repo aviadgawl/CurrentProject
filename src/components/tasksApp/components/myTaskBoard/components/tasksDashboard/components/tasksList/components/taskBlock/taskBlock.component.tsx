@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface TaskBlockProps { head: string, body: string, prioraty: number };
+interface TaskBlockProps { head: string, body: string, prioraty: number , type:string };
 interface TaskBlockStatus { value: any };
 
 export default class TaskBlock extends React.Component<TaskBlockProps, TaskBlockStatus>{
@@ -10,7 +10,7 @@ export default class TaskBlock extends React.Component<TaskBlockProps, TaskBlock
     }
 
     public render() {
-        return <div className="callout secondary">
+        return <div className={`callout ${this.props.type}`}>
             <h5>{this.props.head}</h5>
             <p>{this.props.body}</p>
             <a href={location.href}>Complete</a> | <a href={location.href}>Delete</a>

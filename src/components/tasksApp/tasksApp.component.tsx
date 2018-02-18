@@ -46,7 +46,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                     </ul>
                 </div>
 
-                <div id="body">
+                <div id="body" className="bodyContainer">
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/MyTasksBoard' component={MyTasksBoard} />

@@ -23,7 +23,7 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                 <div id="TasksDashboardNavbar">
                     <ul className="mobile-app-filter-menu" data-mobile-app-filter-menu>
                         <li className={this.state.acitveLinkIndex == 0 ? "is-active" : ''}>
-                            <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/MyTasksBoard/Incompleted'}>Incompleted</Link>
+                            <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/MyTasksBoard/'}>Incompleted</Link>
                         </li>
                         <li className={this.state.acitveLinkIndex == 1 ? "is-active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(1)} to={'/MyTasksBoard/Completed'}>Completed</Link>
@@ -32,17 +32,17 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                             <Link onClick={(e) => this.setActiveLinkIndex(2)} to={'/MyTasksBoard/Add'}>Add</Link>
                         </li>
                         <li className={this.state.acitveLinkIndex == 3 ? "is-active" : ''}>
-                            <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/MyTasksBoard/'}>Recent</Link>
+                            <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/MyTasksBoard/Recent'}>Recent</Link>
                         </li>
                     </ul>
                 </div>
                 <div id="TasksDashboardBody">
 
                     <Switch>
-                        <Route path='/MyTasksBoard/Incompleted' render={() => <TasksList header="Incompleted" />} />
-                        <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed"/>} />
-                        <Route path='/MyTasksBoard/Add' render={() => <TasksList header="Add"/>} />
-                        <Route path='/MyTasksBoard/' render={() => <TasksList header="Recent"/>} />
+                        <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed" type="success" />} />
+                        <Route path='/MyTasksBoard/Add' render={() => <TasksList header="Add" type="alert"/>} />
+                        <Route path='/MyTasksBoard/Recent' render={() => <TasksList header="Recent" type="secondary"/>} />
+                        <Route path='/MyTasksBoard/' render={() => <TasksList header="Incompleted" type="primary" />} />
                     </Switch>
                 </div>
             </div>
