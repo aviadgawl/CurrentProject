@@ -16,7 +16,8 @@ interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number };
 
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
-
+    private userToken:string;
+    
     constructor(props: TasksAppProps) {
         super(props, );
         this.state = { acitveLinkIndex: 0 };

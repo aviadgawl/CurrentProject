@@ -17,7 +17,7 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
                 <p className="subheader subheaderHomeText">
                     Orgenize your tasks , earn points and gain new levels thats show how much productive you can be.
                     </p>
-                <a href="#" className="round button">learn more</a>
+                <a href="#" className="round button">Login</a>
             </div>
         </div>
 
