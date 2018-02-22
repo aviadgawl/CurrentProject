@@ -11,7 +11,8 @@ module.exports = {
             "react",
             "react-dom",
             "react-router-dom",
-            "foundation-sites"]
+            "foundation-sites",
+            "react-facebook-login"]
     },
     module: {
         rules: [

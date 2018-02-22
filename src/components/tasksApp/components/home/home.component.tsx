@@ -1,5 +1,6 @@
 import './home.style.css';
 import * as React from 'react';
+import Login from './components/login.component';
 
 interface HomeProps { };
 interface HomeStatus { };
@@ -17,7 +18,7 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
                 <p className="subheader subheaderHomeText">
                     Orgenize your tasks , earn points and gain new levels thats show how much productive you can be.
                     </p>
-                <a href="#" className="round button">Login</a>
+                <Login />
             </div>
         </div>
 
