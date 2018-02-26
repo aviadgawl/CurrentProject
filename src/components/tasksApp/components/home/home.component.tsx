@@ -1,8 +1,8 @@
 import './home.style.css';
 import * as React from 'react';
 import Login from './components/login.component';
-
-interface HomeProps { };
+import { UserData } from '../../entits'
+interface HomeProps { userDataCallBack:any };
 interface HomeStatus { };
 
 export default class Home extends React.Component<HomeProps, HomeStatus>{
@@ -10,8 +10,8 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
         super(props);
     }
 
-    getUserData(userData:any){
-        debugger
+    getUserData(userData:UserData){
+        this.props.userDataCallBack(userData);
     }
 
     render() {

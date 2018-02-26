@@ -11,16 +11,22 @@ import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
 import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
 import Contact from './components/contact/contact.component';
+import {UserData} from './entits';
 
 interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number };
 
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
     private userToken:string;
-    
+    private userData:UserData;
+
     constructor(props: TasksAppProps) {
         super(props, );
         this.state = { acitveLinkIndex: 0 };
+    }
+
+    getUserData(userData:UserData){
+        this.userData = userData;
     }
 
     setActiveLinkIndex(index: number) {
@@ -49,8 +55,8 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
 
                 <div id="body" className="bodyContainer">
                     <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route path='/MyTasksBoard' component={MyTasksBoard} />
+                        <Route exact path='/' render={() => <Home userDataCallBack={this.getUserData.bind(this)} />} />
+                        <Route path='/MyTasksBoard'  render={() => <MyTasksBoard userData={this.userData} />} />
                         <Route exact path='/Contact' component={Contact} />
                     </Switch>
                 </div>
