@@ -2,17 +2,17 @@ import './login.style.css';
 import * as React from 'react';
 import FacebookLogin from 'react-facebook-login';
 
-interface loginProps { };
+interface loginProps {userDataCallBack:any };
 interface loginStatus { };
 
 export default class Login extends React.Component<loginProps, loginStatus>{
+    
     constructor(props: loginProps) {
         super(props);
-
     }
 
     responseFacebook(response: any) {
-        debugger
+        this.props.userDataCallBack(response);
     }
 
     componentClicked() { }
@@ -24,7 +24,7 @@ export default class Login extends React.Component<loginProps, loginStatus>{
                 autoLoad={true}
                 fields="name,email,picture"
                 onClick={this.componentClicked}
-                callback={this.responseFacebook} />
+                callback={this.responseFacebook.bind(this)} />
         </div>
     }
 }
