@@ -58,3 +58,7 @@
 .bodyContainer {
   height: 86vh;
 }
+
+.tasksAppHidden{
+  visibility: collapse;
+}

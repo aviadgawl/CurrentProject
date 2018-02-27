@@ -13,7 +13,6 @@ export default class Login extends React.Component<loginProps, loginStatus>{
     }
 
     responseFacebook(response: any) {
-        debugger
         let userData = new UserData(response.name , `http://graph.facebook.com/${response.id}/picture?type=large` , response.id);
         this.props.userDataCallBack(userData);
     }

@@ -22,7 +22,7 @@ export default class MyTasksBoard extends React.Component<MyTasksBoardProps, MyT
     render() {
         return <div className="taskBoard grid-x">
             <div id="myProfile" className="myProfileContainer cell medium-6 large-6">
-                < MyProfile />
+                < MyProfile userData={this.props.userData} />
             </div>
             <div id="tasksDashboard" className="tasksDashboardContainer cell medium-6 large-6">
                 <TasksDashboard />

@@ -11,24 +11,47 @@ import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
 import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
 import Contact from './components/contact/contact.component';
-import {UserData} from './entits';
+import { UserData } from './entits';
 
 interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number };
 
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
-    private userToken:string;
-    private userData:UserData;
+    private userToken: string;
+    private userData: UserData;
+    private isLoggedIn: boolean;
 
     constructor(props: TasksAppProps) {
         super(props, );
         this.state = { acitveLinkIndex: 0 };
     }
 
-    getUserData(userData:UserData){
+    getUserData(userData: UserData) {
         this.userData = userData;
+
+        if (this.userData.userName) {
+            this.isLoggedIn = true;
+        }
+
+        // For rerender the component.
+        this.setState(this.state);
     }
 
+    renderLoggedinOptions() {
+        if (this.isLoggedIn) {
+            return [<li key="myTasksBoard" className={this.state.acitveLinkIndex == 1 ? "active" : ''}>
+                <Link onClick={(e) => this.setActiveLinkIndex(1)} to={'/MyTasksBoard'}>My Tasks Board</Link>
+            </li>,
+            <li key="myProtages" className={this.state.acitveLinkIndex == 2 ? "active" : ''}>
+                <a href="#">My Protages</a>
+            </li>
+            ]
+        }
+    }
+
+    renderMyProtages() {
+        return
+    }
     setActiveLinkIndex(index: number) {
         this.setState({ acitveLinkIndex: index });
     }
@@ -43,11 +66,8 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                         <li className={this.state.acitveLinkIndex == 0 ? "active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/'}>Home</Link>
                         </li>
-                        <li className={this.state.acitveLinkIndex == 1 ? "active" : ''}>
-                            <Link onClick={(e) => this.setActiveLinkIndex(1)} to={'/MyTasksBoard'}>My Tasks Board</Link>
-                        </li>
-                        <li><a href="#">My Protages</a></li>
-                        <li>
+                        {this.renderLoggedinOptions()}
+                        <li className={this.state.acitveLinkIndex == 3 ? "active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(3)} to={'/Contact'}>Contact</Link>
                         </li>
                     </ul>
@@ -56,7 +76,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                 <div id="body" className="bodyContainer">
                     <Switch>
                         <Route exact path='/' render={() => <Home userDataCallBack={this.getUserData.bind(this)} />} />
-                        <Route path='/MyTasksBoard'  render={() => <MyTasksBoard userData={this.userData} />} />
+                        <Route path='/MyTasksBoard' render={() => <MyTasksBoard userData={this.userData} />} />
                         <Route exact path='/Contact' component={Contact} />
                     </Switch>
                 </div>
