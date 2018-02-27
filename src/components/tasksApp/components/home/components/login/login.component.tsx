@@ -1,7 +1,7 @@
 import './login.style.css';
 import * as React from 'react';
 import FacebookLogin from 'react-facebook-login';
-import {UserData} from '../../../entits'
+import {UserData} from '../../../../entits'
 
 interface loginProps {userDataCallBack:any };
 interface loginStatus { };

@@ -1,7 +1,8 @@
 import './home.style.css';
 import * as React from 'react';
-import Login from './components/login.component';
-import { UserData } from '../../entits'
+import Login from './components/login/login.component';
+import { UserData } from '../../entits';
+
 interface HomeProps { userDataCallBack:any };
 interface HomeStatus { };
 
