@@ -1,6 +1,6 @@
 import './myProfile.style.css';
 import * as React from 'react';
-import { UserData } from '../../../../entits';
+import { UserData } from '../../common/entits';
 
 interface myProfileProps { userData: UserData };
 interface myProfileStatus { };

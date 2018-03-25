@@ -2,8 +2,8 @@ import './tasksDashboard.style.css';
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
-import TasksList from './components/tasksList/tasksList.component';
-import AddTask from './components/addTask/addTask.component';
+import TasksList from '../tasksList/tasksList.component';
+import AddTask from '../addTask/addTask.component';
 
 interface tasksDashboardProps { };
 interface tasksDashboardStatus { acitveLinkIndex: number };

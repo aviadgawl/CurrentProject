@@ -1,9 +1,9 @@
 import './home.style.css';
 import * as React from 'react';
-import Login from './components/login/login.component';
-import { UserData } from '../../entits';
+import Login from '../login/login.component';
+import { UserData } from '../.././common/entits';
 
-interface HomeProps { userDataCallBack:any };
+interface HomeProps { userDataCallBack:any , isLoggedIn: boolean };
 interface HomeStatus { };
 
 export default class Home extends React.Component<HomeProps, HomeStatus>{
@@ -23,7 +23,7 @@ export default class Home extends React.Component<HomeProps, HomeStatus>{
                 <p className="subheader subheaderHomeText">
                     Orgenize your tasks , earn points and gain new levels thats show how much productive you can be.
                     </p>
-                <Login userDataCallBack={this.getUserData.bind(this)} />
+                <Login userDataCallBack={this.getUserData.bind(this)} isLoggedIn={this.props.isLoggedIn} />
             </div>
         </div>
 

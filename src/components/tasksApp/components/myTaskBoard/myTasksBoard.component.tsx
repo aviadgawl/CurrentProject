@@ -5,10 +5,10 @@ import './myTasksBoard.style.css';
 import * as React from 'react';
 
 // My Modules.
-import MyProfile from './components/myProfile/myProfile.component';
-import StatusRing from './components/statusRing/statusRing.component';
-import TasksDashboard from './components/tasksDashboard/tasksDashboard.component';
-import { UserData } from '../../entits';
+import MyProfile from '../myProfile/myProfile.component';
+import StatusRing from '../statusRing/statusRing.component';
+import TasksDashboard from '../tasksDashboard/tasksDashboard.component';
+import { UserData } from '../../common/entits';
 
 interface MyTasksBoardProps { userData: UserData };
 interface MyTasksBoardStatus { };

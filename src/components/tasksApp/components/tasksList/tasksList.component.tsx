@@ -1,6 +1,6 @@
 import './tasksList.style.css';
 import * as React from 'react';
-import TaskBlock from './components/taskBlock/taskBlock.component';
+import TaskBlock from '../taskBlock/taskBlock.component';
 
 interface tasksListProps { header: string , type:string };
 interface tasksListStatus { };
