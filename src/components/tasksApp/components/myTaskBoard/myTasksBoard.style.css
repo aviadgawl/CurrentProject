@@ -1,8 +1,10 @@
-.taskBoard{
+/*myTasksBoard*/
+
+.taskBoard {
     height: inherit;
     padding: 10px;
 }
 
-.myProfileContainer{
+.myProfileContainer {
     width: 50%;
 }

@@ -38,7 +38,6 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                     </ul>
                 </div>
                 <div id="TasksDashboardBody">
-
                     <Switch>
                         <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed" type="success" />} />
                         <Route path='/MyTasksBoard/Add' render={() => <AddTask />} />

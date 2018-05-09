@@ -26,24 +26,28 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
         super(props, );
         this.state = { acitveLinkIndex: 0, isLoggedIn: false };
         this.dataServiceApi = new DataService('http://localhost:8181');
+
+        let preUserData: string = localStorage.getItem("userData");
+        this.userData = preUserData?JSON.parse(preUserData): new UserData(null,null,null);
     }
 
     getUserData(userData: UserData) {
         this.userData = userData;
 
-        this.dataServiceApi.getUserInfo(parseInt(this.userData.id), (data: any, status: any) => {
-            if (data) {
-                let parsedData = JSON.parse(data);
-                if (parsedData == null) {
-                    this.dataServiceApi.saveUser(this.userData, function (data: any, status: any) {
+        // this.dataServiceApi.getUserInfo(parseInt(this.userData.id), (data: any, status: any) => {
+        //     if (data) {
+        //         let parsedData = JSON.parse(data);
+        //         if (parsedData == null) {
+        //             this.dataServiceApi.saveUser(this.userData, function (data: any, status: any) {
                         
-                    });
-                }
-            }
-        });
+        //             });
+        //         }
+        //     }
+        // });
 
         if (this.userData.userName) {
             this.setState({ isLoggedIn: true })
+            localStorage.setItem("userData" ,JSON.stringify(this.userData));
         }
     }
 

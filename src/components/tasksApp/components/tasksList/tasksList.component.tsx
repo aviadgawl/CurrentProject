@@ -11,9 +11,8 @@ export default class TasksList extends React.Component<tasksListProps, tasksList
     }
 
     render() {
-        return <div>
-            <h1>{this.props.header}</h1>
-            <ul>
+        return <div className="callout">
+            <ul className="cancelBullets">
                 <li>
                 <TaskBlock head="Go to the supermarket" body="buy milk and suger" prioraty={2} type={this.props.type} />
                 </li>
