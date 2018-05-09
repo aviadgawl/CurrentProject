@@ -12,24 +12,38 @@ import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
 import Contact from './components/contact/contact.component';
 import { UserData } from './common/entits';
+import DataService from './common/DataService';
 
 interface TasksAppProps { };
-interface TasksAppStatus { acitveLinkIndex: number , isLoggedIn: boolean };
+interface TasksAppStatus { acitveLinkIndex: number, isLoggedIn: boolean };
 
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
     private userToken: string;
     private userData: UserData;
-
+    private dataServiceApi: DataService;
+    
     constructor(props: TasksAppProps) {
         super(props, );
-        this.state = { acitveLinkIndex: 0 , isLoggedIn: false };
+        this.state = { acitveLinkIndex: 0, isLoggedIn: false };
+        this.dataServiceApi = new DataService('http://localhost:8181');
     }
 
     getUserData(userData: UserData) {
         this.userData = userData;
 
+        this.dataServiceApi.getUserInfo(parseInt(this.userData.id), (data: any, status: any) => {
+            if (data) {
+                let parsedData = JSON.parse(data);
+                if (parsedData == null) {
+                    this.dataServiceApi.saveUser(this.userData, function (data: any, status: any) {
+                        
+                    });
+                }
+            }
+        });
+
         if (this.userData.userName) {
-            this.setState({isLoggedIn: true})
+            this.setState({ isLoggedIn: true })
         }
     }
 
@@ -63,7 +77,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                         <li className={this.state.acitveLinkIndex == 0 ? "active" : ''}>
                             <Link onClick={(e) => this.setActiveLinkIndex(0)} to={'/'}>Home</Link>
                         </li>
-                   
+
                         {this.renderLoggedinOptions()}
 
                         <li className={this.state.acitveLinkIndex == 3 ? "active" : ''}>

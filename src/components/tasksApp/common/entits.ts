@@ -1,7 +1,7 @@
 export class UserData{
     public userName:string;
     public pictrueUrl:string;
-    private id:string;
+    public id:string;
 
     constructor(userName:string , pictureUrl:string , id:string) {
         this.userName = userName;
