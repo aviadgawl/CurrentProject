@@ -25,11 +25,11 @@ export default class MyProfile extends React.Component<myProfileProps, myProfile
 
                 <div className="card-profile-stats-container">
                     <div className="card-profile-stats-statistic">
-                        <span className="stat">3403</span>
+                        <span className="stat">{this.props.userData.points}</span>
                         <p>points</p>
                     </div>
                     <div className="card-profile-stats-statistic">
-                        <span className="stat">25</span>
+                        <span className="stat">{this.props.userData.calculateLevel()}</span>
                         <p>level</p>
                     </div>
                     <div className="card-profile-stats-statistic">

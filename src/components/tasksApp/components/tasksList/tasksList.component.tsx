@@ -1,8 +1,9 @@
 import './tasksList.style.css';
 import * as React from 'react';
 import TaskBlock from '../taskBlock/taskBlock.component';
+import { Task } from '../../common/entits';
 
-interface tasksListProps { header: string , type:string };
+interface tasksListProps { header: string, type: string, tasks: Task[] };
 interface tasksListStatus { };
 
 export default class TasksList extends React.Component<tasksListProps, tasksListStatus>{
@@ -10,15 +11,17 @@ export default class TasksList extends React.Component<tasksListProps, tasksList
         super(props);
     }
 
+    renderTasks() {
+        debugger
+        return this.props.tasks.map((task , index) => {
+            return <li key={index}><TaskBlock head={task.header} body="buy milk and suger" prioraty={2} type={this.props.type} /></li>
+        });
+    }
+
     render() {
         return <div className="callout">
             <ul className="cancelBullets">
-                <li>
-                <TaskBlock head="Go to the supermarket" body="buy milk and suger" prioraty={2} type={this.props.type} />
-                </li>
-                <li>
-                <TaskBlock head="Go to the GYM" body="finish my daily workout" prioraty={2} type={this.props.type}  />
-                </li>
+                {this.renderTasks()}
             </ul>
         </div>
     }

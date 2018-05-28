@@ -8,24 +8,39 @@ export default class DataService {
         this.dataUrl = url;
     }
 
-    public getUserInfo = function (userFaceBookId: number, cb: any) {
-        
-        $.get(`${this.dataUrl}/users/${userFaceBookId}`, cb);
+    public getUserInfo = function (facebookId: string, cb: any) {
+
+        $.get(`${this.dataUrl}/users/${facebookId}`, (data, status) => {
+
+            if (data) {
+
+                let parsedData = JSON.parse(data);
+
+                if (parsedData != null) cb(JSON.parse(data), "ok");
+                else cb(null, "user not found");
+            }
+            else cb(null, "error getting the user from the server");
+
+        });
     }
 
     public saveUser = function (userData: UserData, cb: any) {
-        debugger
+
         $.ajax({
             type: "POST",
             url: `${this.dataUrl}/users/save`,
-            data: userData,
+            data: JSON.stringify(userData),
             success: cb,
-            dataType: "application/javascript"
-          });
+            contentType: "application/json",
+            dataType: "json"
+        });
     }
 
-    public getUserTasks = function (userFaceBookId: number) {
-
+    public getUserTasks = function (facebookId: string, cb: any) {
+        $.get(`${this.dataUrl}/tasks/${facebookId}`, (data, status) => {
+            if (data) cb(JSON.parse(data), "ok");
+            else cb(null, "error getting the tasks from the server")
+        });
     }
 
 }

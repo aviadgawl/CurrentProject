@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 import TasksList from '../tasksList/tasksList.component';
 import AddTask from '../addTask/addTask.component';
+import { UserData } from '../../common/entits';
+import { Task } from '../../common/entits';
 
-interface tasksDashboardProps { };
+interface tasksDashboardProps {userData: UserData};
 interface tasksDashboardStatus { acitveLinkIndex: number };
 
 export default class TasksDashboard extends React.Component<tasksDashboardProps, tasksDashboardStatus>{
@@ -16,6 +18,16 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
 
     setActiveLinkIndex(index: number) {
         this.setState({ acitveLinkIndex: index });
+    }
+
+    getCompletedTasks(){
+        debugger
+        return this.props.userData.tasks.filter((task) => {return task.status == "completed"});
+    }
+
+    getInCompletedTasks(){
+        debugger
+        return this.props.userData.tasks.filter((task) => {return task.status == "incompleted"});
     }
 
     render() {
@@ -39,10 +51,10 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                 </div>
                 <div id="TasksDashboardBody">
                     <Switch>
-                        <Route path='/MyTasksBoard/Completed' render={() => <TasksList header="Completed" type="success" />} />
+                        <Route path='/MyTasksBoard/Completed' render={() => <TasksList tasks={this.getCompletedTasks()} header="Completed" type="completed" />} />
                         <Route path='/MyTasksBoard/Add' render={() => <AddTask />} />
-                        <Route path='/MyTasksBoard/Recent' render={() => <TasksList header="Recent" type="secondary"/>} />
-                        <Route path='/MyTasksBoard/' render={() => <TasksList header="Incompleted" type="primary" />} />
+                        <Route path='/MyTasksBoard/Recent' render={() => <TasksList tasks={this.getInCompletedTasks()} header="Recent" type="secondary"/>} />
+                        <Route path='/MyTasksBoard/' render={() => <TasksList tasks={this.getInCompletedTasks()} header="Incompleted" type="incompleted" />} />
                     </Switch>
                 </div>
             </div>
