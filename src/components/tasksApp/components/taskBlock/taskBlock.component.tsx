@@ -1,4 +1,5 @@
-import * as React from 'react'
+import './taskBlock.style.css';
+import * as React from 'react';
 
 interface TaskBlockProps { head: string, body: string, prioraty: number, type: string };
 interface TaskBlockStatus { value: any };

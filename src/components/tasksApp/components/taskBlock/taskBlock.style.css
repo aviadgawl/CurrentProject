@@ -1,0 +1,9 @@
+.completed {
+    background-color: #e1faea;
+    color: #0a0a0a;
+    }
+    
+.incompleted{ 
+    background-color: #d7ecfa;
+    color: #0a0a0a;
+}

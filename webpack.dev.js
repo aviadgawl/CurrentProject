@@ -3,14 +3,14 @@ const common = require('./webpack.common.js');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-module.exports = merge(common , {
+module.exports = merge(common, {
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: { loader: "css-loader"}
+                    use: { loader: "css-loader" }
                 })
             }
         ]
@@ -20,7 +20,7 @@ module.exports = merge(common , {
         contentBase: './dist',
         hot: true
     },
-    plugins:[
+    plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]

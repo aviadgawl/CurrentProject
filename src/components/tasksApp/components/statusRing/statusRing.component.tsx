@@ -1,8 +1,6 @@
 import './statusRing.style.css';
 import * as React from 'react';
-import * as Jquery from 'jquery';
-
-let $ = Jquery;
+import * as $ from 'jquery';
 
 interface statusRingProps { progression: number, maxProgression: number };
 interface statusRingStatus { };
