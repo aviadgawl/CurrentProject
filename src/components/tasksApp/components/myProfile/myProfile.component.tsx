@@ -1,5 +1,10 @@
+// Import component style.
 import './myProfile.style.css';
+
+// Import general modules.
 import * as React from 'react';
+
+// Import app modules.
 import { UserData } from '../../common/entits';
 
 interface myProfileProps { userData: UserData };

@@ -3,10 +3,10 @@ import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 
-// Import My Styles.
+// Import Component Styles.
 import './tasksApp.style.css';
 
-// My Modules.
+// App Modules.
 import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
 import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
@@ -21,12 +21,12 @@ interface TasksAppStatus { acitveLinkIndex: number, isLoggedIn: boolean };
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
     private userToken: string;
     private userData: UserData;
-    private dataServiceApi: DataService;
+    private svc: DataService;
 
     constructor(props: TasksAppProps) {
         super(props, );
         this.state = { acitveLinkIndex: 0, isLoggedIn: false };
-        this.dataServiceApi = new DataService('http://localhost:8181');
+        this.svc = new DataService('http://localhost:8181');
 
         let preUserData: string = localStorage.getItem("userData");
         this.userData = preUserData ? JSON.parse(preUserData) : new UserData(null, null, null);
@@ -35,7 +35,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
     getUserData(userData: UserData) {
         this.userData = userData;
 
-        this.dataServiceApi.getUserInfo(this.userData.id, (userData: UserData, status: string) => {
+        this.svc.getUserInfo(this.userData.id, (userData: UserData, status: string) => {
 
                 if (userData == null && status == "user not found") this.saveUser();
                 else {
@@ -51,14 +51,14 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
     }
 
     saveUser = () => {
-        this.dataServiceApi.saveUser(this.userData, function (data: any, status: any) {
+        this.svc.saveUser(this.userData, function (data: any, status: any) {
             if (data) console.log(data);
             if (status) console.log(status);
         });
     }
 
     getUserTasks = () => {
-        this.dataServiceApi.getUserTasks(this.userData.id, (tasks: Task[], status: any) => {
+        this.svc.getUserTasks(this.userData.id, (tasks: Task[], status: any) => {
             if(tasks && status == "ok") this.userData.tasks = tasks;
         });
     }

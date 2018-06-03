@@ -1,4 +1,7 @@
-import './footer.style.css'
+// Import component style.
+import './footer.style.css';
+
+// Import general modules. 
 import * as React from 'react';
 
 interface footerProps { };

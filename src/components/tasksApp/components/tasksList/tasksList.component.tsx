@@ -1,5 +1,10 @@
+// Imports component style.
 import './tasksList.style.css';
+
+// Imports general modules.
 import * as React from 'react';
+
+// Imports app modules.
 import TaskBlock from '../taskBlock/taskBlock.component';
 import { Task } from '../../common/entits';
 
@@ -12,7 +17,7 @@ export default class TasksList extends React.Component<tasksListProps, tasksList
     }
 
     renderTasks() {
-        debugger
+        
         return this.props.tasks.map((task , index) => {
             return <li key={index}><TaskBlock head={task.header} body="buy milk and suger" prioraty={2} type={this.props.type} /></li>
         });

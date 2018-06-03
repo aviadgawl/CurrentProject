@@ -1,5 +1,10 @@
+// Import component style
 import './home.style.css';
+
+// Import general modules.
 import * as React from 'react';
+
+// Import app modules.
 import Login from '../login/login.component';
 import { UserData } from '../.././common/entits';
 

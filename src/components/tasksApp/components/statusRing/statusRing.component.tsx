@@ -1,4 +1,7 @@
+// Import component style.
 import './statusRing.style.css';
+
+// Import general modules.
 import * as React from 'react';
 import * as $ from 'jquery';
 

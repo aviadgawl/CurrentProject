@@ -1,4 +1,7 @@
+// Import component style.
 import './contact.style.css';
+
+// Import general modules.
 import * as React from 'react';
 
 interface contactProps { };

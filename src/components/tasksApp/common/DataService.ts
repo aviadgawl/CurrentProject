@@ -1,5 +1,6 @@
 import * as $ from "jquery";
 import { UserData } from "./entits";
+import { Task } from "./entits";
 
 export default class DataService {
     private dataUrl: string
@@ -40,6 +41,17 @@ export default class DataService {
         $.get(`${this.dataUrl}/tasks/${facebookId}`, (data, status) => {
             if (data) cb(JSON.parse(data), "ok");
             else cb(null, "error getting the tasks from the server")
+        });
+    }
+
+    public saveTask = function (taskData: Task , cb:any) {
+        $.ajax({
+            type: "POST",
+            url: `${this.dataUrl}/tasks/save`,
+            data: JSON.stringify(taskData),
+            success: cb,
+            contentType: "application/json",
+            dataType: "json"
         });
     }
 

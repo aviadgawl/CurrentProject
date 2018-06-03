@@ -26,4 +26,5 @@ export class Task {
     public patronId:string;
     public status:string;
     public dateCreated = new Date;
+
 }

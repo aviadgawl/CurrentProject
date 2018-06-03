@@ -1,4 +1,7 @@
+// Import component style.
 import './taskBlock.style.css';
+
+// Import general modules.
 import * as React from 'react';
 
 interface TaskBlockProps { head: string, body: string, prioraty: number, type: string };
@@ -12,7 +15,7 @@ export default class TaskBlock extends React.Component<TaskBlockProps, TaskBlock
 
     renderButtons() {
         let buttons = <div></div>
-debugger
+
         if (this.props.type == "completed") {
             buttons = <div>
                 <a href={location.href}>Complete</a> | <a href={location.href}>Delete</a>

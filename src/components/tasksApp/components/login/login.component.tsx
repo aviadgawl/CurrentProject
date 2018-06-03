@@ -1,6 +1,11 @@
+// Import component style.
 import './login.style.css';
+
+// Import general modules.
 import * as React from 'react';
 import FacebookLogin from 'react-facebook-login';
+
+// Import app modules.
 import { UserData } from '../../common/entits'
 
 interface loginProps { userDataCallBack: any, isLoggedIn: boolean };
