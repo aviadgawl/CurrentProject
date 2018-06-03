@@ -8,6 +8,7 @@ import * as React from 'react';
 import DataService from '../../common/DataService';
 import { Task } from '../../common/entits';
 import { UserData } from '../../common/entits';
+import AppConfig from '../../common/AppConfig';
 
 interface addTaskProps { userData: UserData };
 interface addTaskStatus { };
