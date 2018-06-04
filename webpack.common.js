@@ -49,7 +49,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'TasksGame'
+            title: 'TasksGame',
+            template:'./src/template.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'

@@ -8,18 +8,16 @@ import * as React from 'react';
 import DataService from '../../common/DataService';
 import { Task } from '../../common/entits';
 import { UserData } from '../../common/entits';
-import AppConfig from '../../common/AppConfig';
 
-interface addTaskProps { userData: UserData };
-interface addTaskStatus { };
+interface addTaskProps { userData: UserData  , svc: DataService};
+interface addTaskStatus { taskBody:string };
 
 export default class AddTask extends React.Component<addTaskProps, addTaskStatus>{
-    private svc: DataService;
     private taskData: Task;
 
     constructor(props: addTaskProps) {
         super(props);
-        this.svc = new DataService("http://localhost:8181");
+  
         this.taskData = new Task();
         this.taskData.body = "";
         this.taskData.userFacebookId = this.props.userData.id;
@@ -28,7 +26,7 @@ export default class AddTask extends React.Component<addTaskProps, addTaskStatus
     saveTask = () => {
         debugger
         if (this.validateFields()) {
-            this.svc.saveTask(this.taskData, (data: any, status: any) => {
+            this.props.svc.saveTask(this.taskData, (data: any, status: any) => {
                 debugger
             });
         }
@@ -42,6 +40,11 @@ export default class AddTask extends React.Component<addTaskProps, addTaskStatus
         return isBodyNotEmpty;
     }
 
+    handleTaskBodyChange = (event:any) => {
+        debugger
+        this.setState({taskBody: event.target.value});
+    }
+
     render() {
         return <div>
             <div className="status-update-input-box">
@@ -49,7 +52,7 @@ export default class AddTask extends React.Component<addTaskProps, addTaskStatus
                     <div className="row input-box-container">
                         <div className="columns">
                             <label>
-                                <textarea value={this.taskData.body}></textarea>
+                                <textarea value={this.state.taskBody} onChange={this.handleTaskBodyChange} ></textarea>
                             </label>
                         </div>
                     </div>

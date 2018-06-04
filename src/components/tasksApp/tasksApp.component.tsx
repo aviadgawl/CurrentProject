@@ -101,7 +101,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
                 <div id="body" className="bodyContainer">
                     <Switch>
                         <Route exact path='/' render={() => <Home userDataCallBack={this.getUserData.bind(this)} isLoggedIn={this.state.isLoggedIn} />} />
-                        <Route path='/MyTasksBoard' render={() => <MyTasksBoard userData={this.userData} />} />
+                        <Route path='/MyTasksBoard' render={() => <MyTasksBoard userData={this.userData} svc={this.svc} />} />
                         <Route exact path='/Contact' component={Contact} />
                     </Switch>
                 </div>

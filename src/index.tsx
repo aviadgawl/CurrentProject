@@ -5,14 +5,13 @@ import * as $ from 'jquery';
 
 //load css files.
 import './style.css';
-import '../node_modules/foundation-sites/dist/css/foundation.css';
+import 'foundation-sites/dist/css/foundation.css';
+import './favicon.png';
 
 //my app components
 import TaskApp from './components/tasksApp/tasksApp.component';
 
-document.write("<div id='taskApp' class='fullPage' />");
-
 ReactDOM.render(
     <TaskApp />,
-    document.getElementById("taskApp")
+    document.getElementById("root")
 );

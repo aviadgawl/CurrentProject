@@ -11,8 +11,9 @@ import TasksList from '../tasksList/tasksList.component';
 import AddTask from '../addTask/addTask.component';
 import { UserData } from '../../common/entits';
 import { Task } from '../../common/entits';
+import ServiceData from '../../common/DataService';
 
-interface tasksDashboardProps {userData: UserData};
+interface tasksDashboardProps {userData: UserData , svc:ServiceData};
 interface tasksDashboardStatus { acitveLinkIndex: number };
 
 export default class TasksDashboard extends React.Component<tasksDashboardProps, tasksDashboardStatus>{
@@ -57,7 +58,7 @@ export default class TasksDashboard extends React.Component<tasksDashboardProps,
                 <div id="TasksDashboardBody">
                     <Switch>
                         <Route path='/MyTasksBoard/Completed' render={() => <TasksList tasks={this.getCompletedTasks()} header="Completed" type="completed" />} />
-                        <Route path='/MyTasksBoard/Add' render={() => <AddTask  userData={this.props.userData} />} />
+                        <Route path='/MyTasksBoard/Add' render={() => <AddTask  userData={this.props.userData} svc={this.props.svc} />} />
                         <Route path='/MyTasksBoard/Recent' render={() => <TasksList tasks={this.getInCompletedTasks()} header="Recent" type="secondary"/>} />
                         <Route path='/MyTasksBoard/' render={() => <TasksList tasks={this.getInCompletedTasks()} header="Incompleted" type="incompleted" />} />
                     </Switch>
