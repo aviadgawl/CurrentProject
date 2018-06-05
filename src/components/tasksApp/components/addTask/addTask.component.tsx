@@ -10,23 +10,25 @@ import { Task } from '../../common/entits';
 import { UserData } from '../../common/entits';
 
 interface addTaskProps { userData: UserData  , svc: DataService};
-interface addTaskStatus { taskBody:string };
+interface addTaskStatus { task:Task };
 
 export default class AddTask extends React.Component<addTaskProps, addTaskStatus>{
     private taskData: Task;
 
     constructor(props: addTaskProps) {
         super(props);
-  
-        this.taskData = new Task();
-        this.taskData.body = "";
-        this.taskData.userFacebookId = this.props.userData.id;
+        
+        let newTask = new Task();
+        newTask.body = "";
+        newTask.userFacebookId = this.props.userData.id;
+debugger
+        this.state = {task: newTask};
     }
 
     saveTask = () => {
         debugger
         if (this.validateFields()) {
-            this.props.svc.saveTask(this.taskData, (data: any, status: any) => {
+            this.props.svc.saveTask(this.state.task, (data: any, status: any) => {
                 debugger
             });
         }
@@ -36,13 +38,13 @@ export default class AddTask extends React.Component<addTaskProps, addTaskStatus
     }
 
     validateFields = (): Boolean => {
-        let isBodyNotEmpty = this.taskData.body.length > 0;
+        let isBodyNotEmpty = this.state.task.body.length > 0;
         return isBodyNotEmpty;
     }
 
     handleTaskBodyChange = (event:any) => {
-        debugger
-        this.setState({taskBody: event.target.value});
+        this.state.task.body = event.target.value;
+        this.setState({task: this.state.task});
     }
 
     render() {
@@ -52,7 +54,7 @@ export default class AddTask extends React.Component<addTaskProps, addTaskStatus
                     <div className="row input-box-container">
                         <div className="columns">
                             <label>
-                                <textarea value={this.state.taskBody} onChange={this.handleTaskBodyChange} ></textarea>
+                                <textarea value={this.state.task.body} onChange={this.handleTaskBodyChange} ></textarea>
                             </label>
                         </div>
                     </div>
