@@ -1,6 +1,6 @@
 import * as $ from "jquery";
-import { UserData } from "./entits";
-import { Task } from "./entits";
+import { UserData } from "./entities";
+import { Task } from "./entities";
 
 export default class DataService {
     private dataUrl: string

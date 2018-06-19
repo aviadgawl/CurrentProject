@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 
 // Import app modules.
-import TasksList from '../tasksList/tasksList.component';
-import AddTask from '../addTask/addTask.component';
-import { UserData } from '../../common/entits';
-import { Task } from '../../common/entits';
-import ServiceData from '../../common/DataService';
+import TasksList from '../tasksList/tasks-list.component';
+import AddTask from '../addTask/add-task.component';
+import { UserData } from '../../common/entities';
+import { Task } from '../../common/entities';
+import ServiceData from '../../common/data-service';
 
 interface tasksDashboardProps {userData: UserData , svc:ServiceData};
 interface tasksDashboardStatus { acitveLinkIndex: number };

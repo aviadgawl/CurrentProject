@@ -6,10 +6,10 @@ import * as React from 'react';
 
 // My Modules.
 import MyProfile from '../myProfile/myProfile.component';
-import StatusRing from '../statusRing/statusRing.component';
-import TasksDashboard from '../tasksDashboard/tasksDashboard.component';
-import { UserData } from '../../common/entits';
-import ServiceData from '../../common/DataService';
+import StatusRing from '../statusRing/status-ring.component';
+import TasksDashboard from '../tasksDashboard/tasks-dashboard.component';
+import { UserData } from '../../common/entities';
+import ServiceData from '../../common/data-service';
 
 interface MyTasksBoardProps { userData: UserData , svc: ServiceData };
 interface MyTasksBoardStatus { };

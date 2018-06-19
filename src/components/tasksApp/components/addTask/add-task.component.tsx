@@ -5,9 +5,9 @@ import './addTask.style.css';
 import * as React from 'react';
 
 // Import app modules.
-import DataService from '../../common/DataService';
-import { Task } from '../../common/entits';
-import { UserData } from '../../common/entits';
+import DataService from '../../common/data-service';
+import { Task } from '../../common/entities';
+import { UserData } from '../../common/entities';
 
 interface addTaskProps { userData: UserData  , svc: DataService};
 interface addTaskStatus { task:Task };
