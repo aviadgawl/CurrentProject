@@ -1,4 +1,3 @@
-import * as $ from "jquery";
 import { UserData } from "./entities";
 import { Task } from "./entities";
 
@@ -6,7 +5,6 @@ export default class DataService {
     private dataUrl: string
 
     constructor(url: string) {
-        this.dataUrl = url;
     }
 
     public getUserInfo = function (facebookId: string, cb: (userData: UserData, status: string) => void) {
