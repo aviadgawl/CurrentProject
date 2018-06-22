@@ -1,12 +1,12 @@
 // Imports component style.
-import './tasksList.style.css';
+import './tasks-list.style.css';
 
 // Imports general modules.
 import * as React from 'react';
 
 // Imports app modules.
-import TaskBlock from '../taskBlock/taskBlock.component';
-import { Task } from '../../common/entits';
+import TaskBlock from '../task-block/task-block.component';
+import { Task } from '../../common/entities';
 
 interface tasksListProps { header: string, type: string, tasks: Task[] };
 interface tasksListStatus { };

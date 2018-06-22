@@ -4,22 +4,21 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
 
 // Import Component Styles.
-import './tasksApp.style.css';
+import './tasks-app.style.css';
 
 // App Modules.
-import MyTasksBoard from './components/myTaskBoard/myTasksBoard.component'
+import MyTasksBoard from './components/my-task-board/my-tasks-board.component'
 import Home from './components/home/home.component';
 import Footer from './components/footer/footer.component';
 import Contact from './components/contact/contact.component';
-import { UserData } from './common/entits';
-import { Task } from './common/entits';
-import DataService from './common/DataService';
+import { UserData } from './common/entities';
+import { Task } from './common/entities';
+import DataService from './common/data-service';
 
 interface TasksAppProps { };
 interface TasksAppStatus { acitveLinkIndex: number, isLoggedIn: boolean };
 
 export default class TasksApp extends React.Component<TasksAppProps, TasksAppStatus>{
-    private userToken: string;
     private userData: UserData;
     private svc: DataService;
 
@@ -51,8 +50,7 @@ export default class TasksApp extends React.Component<TasksAppProps, TasksAppSta
     }
 
     saveUser = () => {
-        this.svc.saveUser(this.userData, function (data: any, status: any) {
-            if (data) console.log(data);
+        this.svc.saveUser(this.userData, function ( status: string) {
             if (status) console.log(status);
         });
     }

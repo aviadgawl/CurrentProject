@@ -1,13 +1,13 @@
 // Import My Styles.
-import './myTasksBoard.style.css';
+import './my-tasks-board.style.css';
 
 // General Modules
 import * as React from 'react';
 
 // My Modules.
-import MyProfile from '../myProfile/myProfile.component';
-import StatusRing from '../statusRing/status-ring.component';
-import TasksDashboard from '../tasksDashboard/tasks-dashboard.component';
+import MyProfile from '../my-profile/my-profile.component';
+import StatusRing from '../status-ring/status-ring.component';
+import TasksDashboard from '../tasks-dashboard/tasks-dashboard.component';
 import { UserData } from '../../common/entities';
 import ServiceData from '../../common/data-service';
 

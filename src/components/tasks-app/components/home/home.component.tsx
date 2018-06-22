@@ -6,7 +6,7 @@ import * as React from 'react';
 
 // Import app modules.
 import Login from '../login/login.component';
-import { UserData } from '../.././common/entits';
+import { UserData } from '../.././common/entities';
 
 interface HomeProps { userDataCallBack:any , isLoggedIn: boolean };
 interface HomeStatus { };

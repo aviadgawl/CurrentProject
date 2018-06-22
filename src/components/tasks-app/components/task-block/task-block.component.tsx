@@ -1,5 +1,5 @@
 // Import component style.
-import './taskBlock.style.css';
+import './task-block.style.css';
 
 // Import general modules.
 import * as React from 'react';

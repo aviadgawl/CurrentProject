@@ -1,11 +1,11 @@
 // Import component style.
-import './myProfile.style.css';
+import './my-profile.style.css';
 
 // Import general modules.
 import * as React from 'react';
 
 // Import app modules.
-import { UserData } from '../../common/entits';
+import { UserData } from '../../common/entities';
 
 interface myProfileProps { userData: UserData };
 interface myProfileStatus { };

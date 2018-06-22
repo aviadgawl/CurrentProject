@@ -1,5 +1,5 @@
 // Import component style.
-import './addTask.style.css';
+import './add-task.style.css';
 
 // Import general modules.
 import * as React from 'react';
@@ -28,7 +28,7 @@ debugger
     saveTask = () => {
         debugger
         if (this.validateFields()) {
-            this.props.svc.saveTask(this.state.task, (data: any, status: any) => {
+            this.props.svc.saveTask(this.state.task, ( status: string) => {
                 debugger
             });
         }

@@ -9,7 +9,7 @@ import 'foundation-sites/dist/css/foundation.css';
 import './favicon.png';
 
 //my app components
-import TaskApp from './components/tasksApp/tasksApp.component';
+import TaskApp from './components/tasks-app/tasks-app.component';
 
 ReactDOM.render(
     <TaskApp />,

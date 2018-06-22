@@ -6,7 +6,7 @@ import * as React from 'react';
 import FacebookLogin from 'react-facebook-login';
 
 // Import app modules.
-import { UserData } from '../../common/entits'
+import { UserData } from '../../common/entities'
 
 interface loginProps { userDataCallBack: any, isLoggedIn: boolean };
 interface loginStatus { isLoggedIn: boolean };

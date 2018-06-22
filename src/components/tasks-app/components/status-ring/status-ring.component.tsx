@@ -1,5 +1,5 @@
 // Import component style.
-import './statusRing.style.css';
+import './status-ring.style.css';
 
 // Import general modules.
 import * as React from 'react';

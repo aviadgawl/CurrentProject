@@ -9,7 +9,7 @@ export default class DataService {
         this.dataUrl = url;
     }
 
-    public getUserInfo = function (facebookId: string, cb: any) {
+    public getUserInfo = function (facebookId: string, cb: (userData:UserData , status:string) => void) {
 
         $.get(`${this.dataUrl}/users/${facebookId}`, (data, status) => {
 
@@ -25,7 +25,7 @@ export default class DataService {
         });
     }
 
-    public saveUser = function (userData: UserData, cb: any) {
+    public saveUser = function (userData: UserData, cb: (status:string) => void) {
 
         $.ajax({
             type: "POST",
@@ -37,14 +37,14 @@ export default class DataService {
         });
     }
 
-    public getUserTasks = function (facebookId: string, cb: any) {
+    public getUserTasks = function (facebookId: string, cb: (tasks:Task[] , status:string) => void ) {
         $.get(`${this.dataUrl}/tasks/${facebookId}`, (data, status) => {
             if (data) cb(JSON.parse(data), "ok");
             else cb(null, "error getting the tasks from the server")
         });
     }
 
-    public saveTask = function (taskData: Task , cb:any) {
+    public saveTask = function (taskData: Task , cb: (status:string) => void) {
         debugger
         $.ajax({
             type: "POST",
